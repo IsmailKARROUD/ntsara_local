@@ -19,10 +19,10 @@ class ManagePrivateChatScreen extends StatefulWidget {
 class _ManagePrivateChatScreenState extends State<ManagePrivateChatScreen> {
   @override
   Widget build(BuildContext context) {
-    final id = "TJHS470POcTM8ree10SkhI7hQst1";
+    const String id = "TJHS470POcTM8ree10SkhI7hQst1";
 
     return Subscription(
-      options: RequestsBuilder.getPrivatesChatSubscription(id: id),
+      options: RequestsBuilder.getPrivateChatsSubscription(id: id),
       builder: (result) {
         return FutureBuilder<List<dynamic>>(
             future: FutureGraphQL().getAllPrivateChats(id),

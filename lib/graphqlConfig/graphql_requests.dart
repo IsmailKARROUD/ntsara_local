@@ -9,47 +9,75 @@ class RequestsBuilder {
     String? iOSToken,
     String? urlProfilePicture,
   }) {
-    final mutation = StringBuffer('mutation { createUser(user:{ id: "$id",');
-
-    if (name != null) {
-      mutation.write(' UserName: "$name",');
-    }
-    if (urlProfilePicture != null) {
-      mutation.write(' Url_Profile_Picture: "$urlProfilePicture",');
-    }
-    if (iOSToken != null && iOSToken != '') {
-      mutation.write(' IOSToken: "$iOSToken",');
-    }
-    if (androidToken != null && androidToken != '') {
-      mutation.write(' AndroidToken: "$androidToken",');
-    }
-
-    mutation
-      ..write(' email: "$email",')
-      ..write(
-          '}) { id, UserName, email, AndroidToken, IOSToken, Url_Profile_Picture, JoinDate }')
-      ..write('}');
+    final mutation = gql(r'''
+mutation (
+  $AndroidToken: String,
+  $IOSToken: String,
+  $Url_Profile_Picture: String,
+  $UserName: String,
+  $email: String !,
+  $id: ID!) {
+  createUser(
+    user: {id: $id, email: $email, AndroidToken: $AndroidToken, IOSToken: $IOSToken, Url_Profile_Picture: $Url_Profile_Picture, UserName: $UserName}
+  ) {
+    IOSToken
+    AndroidToken
+    JoinDate
+    Url_Profile_Picture
+    UserName
+    email
+    id
+  }
+}
+''');
     return QueryOptions(
-        fetchPolicy: FetchPolicy.noCache, document: gql(mutation.toString()));
+        fetchPolicy: FetchPolicy.noCache,
+        document: mutation,
+        variables: {
+          "id": id,
+          "UserName": name,
+          "email": email,
+          "AndroidToken": androidToken,
+          "IOSToken": iOSToken,
+          "Url_Profile_Picture": urlProfilePicture
+        });
   }
 
   static QueryOptions<Object?> getUserQuery({
     required String id,
   }) {
-    final query = StringBuffer(
-        'query { getUser(id: "$id") { id, UserName, email, AndroidToken, IOSToken, Url_Profile_Picture, JoinDate }}');
+    final query = gql(r'''
+query ($id: ID!) {
+  getUser(id: $id) {
+    AndroidToken
+    IOSToken
+    JoinDate
+    Url_Profile_Picture
+    UserName
+    email
+    id
+  }
+}''');
     return QueryOptions(
-        fetchPolicy: FetchPolicy.noCache, document: gql(query.toString()));
+        fetchPolicy: FetchPolicy.noCache,
+        document: query,
+        variables: {"id": id});
   }
 
-  static SubscriptionOptions<Object?> getPrivatesChatSubscription({
+  static SubscriptionOptions<Object?> getPrivateChatsSubscription({
     required String id,
   }) {
-    final String subscription =
-        'subscription {privateChats(userID:"$id"){id,userID,friendID}}';
+    final subscription = gql(r'''
+subscription ($chatID: Int!) {
+  privateChats(userID: "") {
+    friendID
+    id
+    userID
+  }
+}
+''');
     return SubscriptionOptions(
-      document: gql(subscription),
-    );
+        document: subscription, variables: {"userID": id});
   }
 
   static QueryOptions<Object?> getAllPrivateQuery({

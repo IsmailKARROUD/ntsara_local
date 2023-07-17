@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "10807302565",
+    "firebase_url": "https://flutterchat-d8466-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "flutterchat-d8466",
+    "storage_bucket": "flutterchat-d8466.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10807302565:android:77a88f2a26ea5f2be1704c",
+        "android_client_info": {
+          "package_name": "com.example.ntsara_local"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10807302565-2j81nsghrb9g12nl98de1aieqroj6jhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8fIl-Z8ILsL-N9M4MElS895EVwRgnoK4"
+        },
+        {
+          "current_key": "AIzaSyDwOn2d0Fi6IHCr1tggv-Q2R6gEKZjdTNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10807302565-2j81nsghrb9g12nl98de1aieqroj6jhk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "10807302565-08dl96aoa4v99ifi8oa3sin12ju7nvfm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ismailkarroud.nTsara"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:10807302565:android:001965c23bc04978e1704c",
+        "android_client_info": {
+          "package_name": "com.ismailkarroud.nTsara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "10807302565-hmja2gn64fnkg3eq19q0o6415rjv25io.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ismailkarroud.nTsara",
+            "certificate_hash": "280e756b8e327e406f627224258a3c62e5da56e9"
+          }
+        },
+        {
+          "client_id": "10807302565-ok2ur0fv04r6mdn6he4trj14ech9ai2p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ismailkarroud.nTsara",
+            "certificate_hash": "78ab28e2d435bf27905106a72fa77b9be8221319"
+          }
+        },
+        {
+          "client_id": "10807302565-2j81nsghrb9g12nl98de1aieqroj6jhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8fIl-Z8ILsL-N9M4MElS895EVwRgnoK4"
+        },
+        {
+          "current_key": "AIzaSyDwOn2d0Fi6IHCr1tggv-Q2R6gEKZjdTNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "10807302565-2j81nsghrb9g12nl98de1aieqroj6jhk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "10807302565-08dl96aoa4v99ifi8oa3sin12ju7nvfm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ismailkarroud.nTsara"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
