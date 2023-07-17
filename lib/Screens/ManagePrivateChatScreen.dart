@@ -22,7 +22,7 @@ class _ManagePrivateChatScreenState extends State<ManagePrivateChatScreen> {
     final id = "TJHS470POcTM8ree10SkhI7hQst1";
 
     return Subscription(
-      options: RequestsBuilder.getPrivateChatSubscription(id: id),
+      options: RequestsBuilder.getPrivatesChatSubscription(id: id),
       builder: (result) {
         return FutureBuilder<List<dynamic>>(
             future: FutureGraphQL().getAllPrivateChats(id),

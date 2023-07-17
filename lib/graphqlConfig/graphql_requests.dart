@@ -42,7 +42,7 @@ class RequestsBuilder {
         fetchPolicy: FetchPolicy.noCache, document: gql(query.toString()));
   }
 
-  static SubscriptionOptions<Object?> getPrivateChatSubscription({
+  static SubscriptionOptions<Object?> getPrivatesChatSubscription({
     required String id,
   }) {
     final String subscription =
@@ -129,5 +129,26 @@ class RequestsBuilder {
         'chatid': chatId,
       },
     );
+  }
+
+  static SubscriptionOptions<Object?> getPrivateChatSubscription({
+    required String id,
+  }) {
+    final subscription = gql(
+      r'''
+         subscription ($chatID: Int!) {
+  privatechat(chatID: $chatID) {
+    ChatID
+    createdAt
+    id
+    location
+    message
+    senderID
+  }
+}
+    ''',
+    );
+    return SubscriptionOptions(
+        document: subscription, variables: {'chatID': int.parse(id)});
   }
 }
